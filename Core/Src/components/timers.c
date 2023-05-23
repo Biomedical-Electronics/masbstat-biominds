@@ -6,13 +6,33 @@
  */
 
 #include "main.h"
+#include <stdbool.h>
+
+volatile static bool timeout;  //variable porvada
 
 
-static uint32_t Voltage = 0;
-static uint32_t Current = 0;
+void Start_Timer(uint32_t period){    //because it was the timer we defined previously
+	__HAL_TIM_SET_AUTORELOAD(&htim2,period);
+	__HAL_TIM_SET_COUNTER(&htim2,0);
+	timeout=false;
+	HAL_TIM_Base_Start_IT(&htim2);
+}
 
 
+bool TimeoutEllapsed(void){
+	return timeout;
+}
 
-void Start_Timer(){    //because it was the timer we defined previously
-	__HAL_TIM_SET_AUTORELOAD(&htim2,10000);
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+
+	timeout= true;
+
+}
+
+void ClearTimeout(void){
+	timeout= false;
+}
+
+void Stop_Timer(void){
+
 }
