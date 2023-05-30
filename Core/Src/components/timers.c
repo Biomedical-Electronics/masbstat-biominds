@@ -8,7 +8,7 @@
 #include "main.h"
 #include <stdbool.h>
 
-volatile static bool timeout;  //variable porvada
+volatile static bool timeout;
 
 
 void Start_Timer(uint32_t period){    //because it was the timer we defined previously
@@ -34,5 +34,5 @@ void ClearTimeout(void){
 }
 
 void Stop_Timer(void){
-
+	HAL_TIM_Base_Stop_IT(&htim2);
 }
