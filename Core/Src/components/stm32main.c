@@ -6,8 +6,12 @@
  */
 
 
+#include <components/i2c_lib.h>
+#include <components/mcp4725_driver.h>
 #include <components/stm32main.h>
 #include "components/masb_comm_s.h"
+
+extern I2C_HandleTypeDef hi2c1;
 
 struct CV_Configuration_S cvConfiguration;
 struct CA_Configuration_S caConfiguration;
