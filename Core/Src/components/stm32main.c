@@ -6,6 +6,7 @@
  */
 
 
+#include <components/ad5280_driver.h>
 #include <components/i2c_lib.h>
 #include <components/mcp4725_driver.h>
 #include <components/stm32main.h>
@@ -23,7 +24,7 @@ enum {
 	STOP
 }Estado = IDLE;
 
-static MCP4725_Handle_T hdac = NULL;
+MCP4725_Handle_T hdac = NULL;
 
 
 
