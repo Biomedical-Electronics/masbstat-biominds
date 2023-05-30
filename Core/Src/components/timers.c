@@ -7,6 +7,8 @@
 
 #include "main.h"
 #include <stdbool.h>
+extern I2C_HandleTypeDef hi2c1;
+extern TIM_HandleTypeDef htim2;
 
 volatile static bool timeout;
 

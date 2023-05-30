@@ -9,6 +9,7 @@
 #include <components/stm32main.h>
 #include "components/masb_comm_s.h"
 
+
 struct CV_Configuration_S cvConfiguration;
 struct CA_Configuration_S caConfiguration;
 struct Data_S data;
