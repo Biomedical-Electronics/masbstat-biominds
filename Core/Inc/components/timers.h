@@ -7,6 +7,7 @@
 
 #ifndef INC_COMPONENTS_TIMERS_H_
 #define INC_COMPONENTS_TIMERS_H_
+#include <stdbool.h>
 
 void Start_Timer(uint32_t period);
 void Stop_Timer(void);
