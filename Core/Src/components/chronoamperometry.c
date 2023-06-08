@@ -27,7 +27,7 @@ void chronoamperometry(struct CA_Configuration_S caConfiguration){
 	MCP4725_SetOutputVoltage(hdac,  calculateDacOutputVoltage(caConfiguration.eDC));// To fix the voltage from all the voltage values it could get
 	// Tensio edc --> calculem tensio equivalent --> li passem a la funcio calculateDa
 
-	Close_Rele();
+	Start_Rele();
 	Start_Timer(caConfiguration.samplingPeriodMs);
 	uint32_t EllapsedTime = 0;
 	uint32_t counter_data = 1;
@@ -61,7 +61,7 @@ void chronoamperometry(struct CA_Configuration_S caConfiguration){
 		}
 
 	}
-	Start_Rele();
+	Close_Rele();
 	Stop_Timer();
 }
 
