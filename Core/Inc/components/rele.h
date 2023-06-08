@@ -9,5 +9,6 @@
 #define INC_COMPONENTS_RELE_H_
 
 void Start_Rele(void);
+void Close_Rele(void);
 
 #endif /* INC_COMPONENTS_RELE_H_ */
