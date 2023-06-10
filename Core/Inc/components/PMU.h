@@ -9,5 +9,6 @@
 #define INC_COMPONENTS_PMU_H_
 
 void Start_PMU(void);
+void Close_PMU(void);
 
 #endif /* INC_COMPONENTS_PMU_H_ */
