@@ -1,0 +1,2 @@
+../Core/Src/components/i2c_lib.c:5:6:I2C_init	0	static
+../Core/Src/components/i2c_lib.c:11:6:I2C_write	0	static

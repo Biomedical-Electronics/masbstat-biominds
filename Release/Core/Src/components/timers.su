@@ -1,0 +1,5 @@
+../Core/Src/components/timers.c:16:6:Start_Timer	0	static
+../Core/Src/components/timers.c:24:6:TimeoutEllapsed	0	static
+../Core/Src/components/timers.c:28:6:HAL_TIM_PeriodElapsedCallback	0	static
+../Core/Src/components/timers.c:34:6:ClearTimeout	0	static
+../Core/Src/components/timers.c:38:6:Stop_Timer	0	static
