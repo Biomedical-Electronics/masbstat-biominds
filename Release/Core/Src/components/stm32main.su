@@ -1,0 +1,2 @@
+../Core/Src/components/stm32main.c:33:6:setup	24	static
+../Core/Src/components/stm32main.c:70:6:loop	88	static,ignoring_inline_asm
