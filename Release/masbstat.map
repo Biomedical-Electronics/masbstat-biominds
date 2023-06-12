@@ -35,6 +35,8 @@ Archive member included to satisfy reference by file (symbol)
 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixunsdfsi.o)
                               ./Core/Src/components/ad5280_driver.o (__aeabi_d2uiz)
 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_truncdfsf2.o)
+                              ./Core/Src/components/cyclic_voltammetry.o (__aeabi_d2f)
+
                               ./Core/Src/components/formulas.o (__aeabi_d2f)
 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_ldivmod.o)
                               ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o (__aeabi_ldivmod)
@@ -100,6 +102,7 @@ Discarded input sections
  .text.compare_function
                 0x0000000000000000       0x28 ./Core/Src/components/cyclic_voltammetry.o
  .text.cyclic_voltammetry
+                0x0000000000000000      0x280 ./Core/Src/components/cyclic_voltammetry.o
                 0x0000000000000000      0x258 ./Core/Src/components/cyclic_voltammetry.o
  .comment       0x0000000000000000       0x51 ./Core/Src/components/cyclic_voltammetry.o
  .ARM.attributes

@@ -15,8 +15,9 @@
 #include "components/masb_comm_s.h"
 #include "components/PMU.h"
 #include "components/rele.h"
-#include "components/stm32main.h"
 #include "components/formulas.h"
+#include "main.h"
+
 
 extern I2C_HandleTypeDef hi2c1;
 extern ADC_HandleTypeDef hadc1;
@@ -24,116 +25,114 @@ extern TIM_HandleTypeDef htim2;
 extern MCP4725_Handle_T hdac;
 
 
-int compare_function(double x, double y){
-	return (x - y) < 0.000005;
+int compare_function(double x, double y) {
+    return (x - y) < 0.000005;
 }
 
-void cyclic_voltammetry(struct CV_Configuration_S cvConfiguration){
+void cyclic_voltammetry(struct CV_Configuration_S cvConfiguration) {
 
-	MCP4725_SetOutputVoltage(hdac,  calculateDacOutputVoltage(cvConfiguration.eBegin));
-	double VObjective = cvConfiguration.eVertex1;
 	Start_Rele();
 
-	uint8_t cycles = cvConfiguration.cycles;
-	double scanRate = cvConfiguration.scanRate;
-	double eStep = cvConfiguration.eStep;
-	double SamplingPeriod = eStep / (scanRate / 1000);
+	float Vcell = cvConfiguration.eBegin;
 
-	Start_Timer(SamplingPeriod);
+    MCP4725_SetOutputVoltage(hdac, calculateDacOutputVoltage(Vcell));
 
-	uint32_t EllapsedTime = 0;
-	uint32_t counter_data = 1;
-	uint8_t numbercycles = 0;
+    double VObj = cvConfiguration.eVertex1;
+    double scanRate = cvConfiguration.scanRate;
+    double eStep = cvConfiguration.eStep;
+    double SamplingPeriod = eStep / (scanRate / 1000);
 
+    uint8_t cycles = cvConfiguration.cycles;
 
+    uint32_t counter_data = 1;
+    uint32_t EllapsedTime= 0;
+    uint32_t total_cycles = 0;
 
-	while (EllapsedTime < SamplingPeriod){
-		while (numbercycles < cycles){
+    Start_Timer(SamplingPeriod);
 
-					if (TimeoutEllapsed()){
-						EllapsedTime = EllapsedTime + SamplingPeriod;
+    while (total_cycles < cycles){
+    	while (TimeoutEllapsed()== true){
 
-						ADC_Start();
-						uint32_t voltageAdc = ADC_get_Voltage();
-						uint32_t currentAdc = ADC_get_Current();
+			ADC_Start();
+			uint32_t voltageAdc = ADC_get_Voltage();
+			uint32_t currentAdc = ADC_get_Current();
+			double current = calculateIcellCurrent(currentAdc);
+			double voltage = calculateVrefVoltage(voltageAdc);
 
-						double current = calculateIcellCurrent(currentAdc);
-						double voltage = calculateVrefVoltage(voltageAdc);
-						ADC_Stop();
+			struct Data_S data;
+			data.point = counter_data;
+			counter_data++;
+			data.timeMs = EllapsedTime;
+			data.current = current;
+			data.voltage = voltage;
 
-						struct Data_S data;
+			MASB_COMM_S_sendData(data);
 
-						data.point = counter_data;
-						counter_data = counter_data +1;
-						data.timeMs = EllapsedTime;
-						data.current = current;
-						data.voltage = voltage;
-
-						MASB_COMM_S_sendData(data);
-
-						ClearTimeout();
-
-							if (compare_function(VObjective, cvConfiguration.eVertex1)) {
-
-								VObjective = cvConfiguration.eVertex2;
-
-							} else if (compare_function(VObjective, cvConfiguration.eVertex2)) {
-
-								VObjective = cvConfiguration.eBegin;
-
-							} else if (compare_function(VObjective, cvConfiguration.eBegin)) {
-
-								VObjective = cvConfiguration.eVertex1;
-								// AQUÍ LI HAURÍEM DE SUMAR UN CICLE I COMENCEM UN NOU CICLE
-								numbercycles = numbercycles + 1; // We start a new cycle
-
-							}
+			EllapsedTime = EllapsedTime + SamplingPeriod;
 
 
-							} else {
-								if (compare_function(VObjective, cvConfiguration.eVertex1)) {
 
-									if (cvConfiguration.eBegin + eStep > VObjective) {
+			if (compare_function(Vcell, VObj)){
 
-										cvConfiguration.eBegin = VObjective;
+				if(compare_function(VObj, cvConfiguration.eVertex1)){
 
-									} else {
+					VObj = cvConfiguration.eVertex2;
 
-										cvConfiguration.eBegin = cvConfiguration.eBegin + eStep;
-									}
-								}
-								if (compare_function(VObjective, cvConfiguration.eVertex2)) {
+				}else if (compare_function(VObj, cvConfiguration.eVertex2)){
 
-									if (cvConfiguration.eBegin - eStep < VObjective) {
+					VObj = cvConfiguration.eBegin;
 
-										cvConfiguration.eBegin = VObjective;
+				}else {
 
-									} else {
+					VObj = cvConfiguration.eVertex1;
 
-										cvConfiguration.eBegin = cvConfiguration.eBegin - eStep;
-									}
-								}
-								if (compare_function(VObjective, cvConfiguration.eBegin)) {
+					total_cycles++;
+				}
+			} else {
 
-									if (cvConfiguration.eBegin + eStep > VObjective) {
+				if (compare_function(VObj, cvConfiguration.eVertex1)){
 
-										cvConfiguration.eBegin = VObjective;
+					if (Vcell + eStep > VObj){
 
-									} else {
+						Vcell = VObj;
 
-										cvConfiguration.eBegin = cvConfiguration.eBegin + eStep;
+					} else {
 
-									}
-								}
-							}
-
-						MCP4725_SetOutputVoltage(hdac, calculateDacOutputVoltage(cvConfiguration.eBegin));
-
+						Vcell = Vcell + eStep;
 					}
-	}
+				}
 
-			Close_Rele();
+				if (compare_function(VObj,cvConfiguration.eVertex2)){
 
-			Stop_Timer();
+					if (Vcell - eStep < VObj){
+
+						Vcell = VObj;
+
+					} else {
+
+						Vcell = Vcell - eStep;
+					}
+				}
+
+				if (compare_function(VObj, cvConfiguration.eBegin)){
+
+					if (Vcell + eStep > VObj){
+
+						Vcell = VObj;
+
+					} else {
+
+						Vcell = Vcell + eStep;
+					}
+				}
+			ClearTimeout();
+			}
+		    MCP4725_SetOutputVoltage(hdac, calculateDacOutputVoltage(Vcell));
+    	}
+
+    }
+    Close_Rele();
+    ADC_Stop();
+    Stop_Timer();
 
 }
