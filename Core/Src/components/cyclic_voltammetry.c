@@ -1,4 +1,3 @@
-
 /*
  * cyclic_voltammetry.c
  *
@@ -19,10 +18,12 @@
 #include "components/formulas.h"
 #include "main.h"
 
+
 extern I2C_HandleTypeDef hi2c1;
 extern ADC_HandleTypeDef hadc1;
 extern TIM_HandleTypeDef htim2;
 extern MCP4725_Handle_T hdac;
+
 
 int compare_function(double x, double y) {
     return (x - y) < 0.000005;
@@ -133,4 +134,5 @@ void cyclic_voltammetry(struct CV_Configuration_S cvConfiguration) {
     Close_Rele();
     ADC_Stop();
     Stop_Timer();
+
 }
