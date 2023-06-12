@@ -73,61 +73,42 @@ void cyclic_voltammetry(struct CV_Configuration_S cvConfiguration) {
 
 
 			if (compare_function(Vcell, VObj)){
-
 				if(compare_function(VObj, cvConfiguration.eVertex1)){
-
 					VObj = cvConfiguration.eVertex2;
-
 				}else if (compare_function(VObj, cvConfiguration.eVertex2)){
-
 					VObj = cvConfiguration.eBegin;
-
 				}else {
-
 					VObj = cvConfiguration.eVertex1;
-
 					total_cycles++;
 				}
 			} else {
-
 				if (compare_function(VObj, cvConfiguration.eVertex1)){
-
 					if (Vcell + eStep > VObj){
-
 						Vcell = VObj;
-
 					} else {
-
 						Vcell = Vcell + eStep;
 					}
 				}
 
 				if (compare_function(VObj,cvConfiguration.eVertex2)){
-
 					if (Vcell - eStep < VObj){
-
 						Vcell = VObj;
-
 					} else {
-
 						Vcell = Vcell - eStep;
 					}
 				}
 
 				if (compare_function(VObj, cvConfiguration.eBegin)){
-
 					if (Vcell + eStep > VObj){
-
 						Vcell = VObj;
-
 					} else {
-
 						Vcell = Vcell + eStep;
 					}
 				}
-			ClearTimeout();
+
 			}
 		    MCP4725_SetOutputVoltage(hdac, calculateDacOutputVoltage(Vcell));
+		    ClearTimeout();
     	}
 
     }
