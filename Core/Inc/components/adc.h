@@ -8,12 +8,12 @@
 #ifndef INC_COMPONENTS_ADC_H_
 #define INC_COMPONENTS_ADC_H_
 
-ADC_Start();
+void ADC_Start(void);
 
 uint32_t ADC_get_Voltage();
 
 uint32_t ADC_get_Current();
 
-ADC_Stop();
+void ADC_Stop(void);
 
 #endif /* INC_COMPONENTS_ADC_H_ */
