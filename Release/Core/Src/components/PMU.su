@@ -1,0 +1,2 @@
+../Core/Src/components/PMU.c:9:6:Start_PMU	8	static
+../Core/Src/components/PMU.c:14:6:Close_PMU	0	static

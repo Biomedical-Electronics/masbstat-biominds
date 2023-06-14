@@ -1,0 +1,4 @@
+../Core/Src/components/adc.c:12:6:ADC_Start	0	static
+../Core/Src/components/adc.c:16:10:ADC_get_Voltage	8	static
+../Core/Src/components/adc.c:21:10:ADC_get_Current	0	static
+../Core/Src/components/adc.c:26:6:ADC_Stop	0	static
