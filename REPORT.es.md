@@ -27,7 +27,7 @@ Este proyecto ha sido desarrollado durante el curso 2022-2023 en el Grado en Ing
    <img src="Docs/assets/imgs/isa.jpeg" alt="Isabel Martin" width="150" /> 
    <img src="Docs/assets/imgs/plade.jpeg" alt="Adrià Pladevall" width="150" /> 
 
-> **Figura 1: Marc Florido (izquierda), Isabel Martín (centro), y Adrià Pladevall (derecha), autores del proyecto desarrollado.**
+> **Figura 1. Marc Florido (izquierda), Isabel Martín (centro), y Adrià Pladevall (derecha), autores del proyecto desarrollado.**
 
 A continuación se adjunta toda la información referente al proyecto desarrollado, el cual consiste en la programación de un potenciostato para llevar a cabo mediciones electroquímicas. Se incluyen todos los resultados obtenidos durante el proyecto, así como una explicación de cómo se ha trabajado en equipo para lograr los objetivos utilizando control de versiones Git en diferentes ramas.
 
@@ -40,20 +40,20 @@ A continuación se adjunta toda la información referente al proyecto desarrolla
 - [Objetivos del proyecto](#objetivos-del-proyecto)
 - [Software y Hardware](#software-y-hardware)
 - [*Workflow* en Git](#workflow-en-git)
-- [*Método*](#método)
-  - [*Organización*](#organización)
-  - [*Aplicación*](#aplicación)
-  - [*Microcontrolador*](#microcontrolador)
-  - [*Cronoamperometría*](#cronoamperometría)
-  - [*Voltametría cíclica*](#voltametría-ciclica)
+- [Método](#método)
+  - [Organización](#organización)
+  - [Aplicación](#aplicación)
+  - [Microcontrolador](#microcontrolador)
+  - [Cronoamperometría](#cronoamperometría)
+  - [Voltametría cíclica](#voltametría-ciclica)
 
-- [*Resultados*](#resultados)
-  - [*Cronoamperometría resultados prueba*](#cronoamperometría-resultados-prueba)
-  - [*Cronoamperometría resultados experimentales*](#cronoamperometría-resultados-experimentales)
-  - [*Voltametría cíclica resultados prueba*](#voltametría-cíclica-resultados-experimentales)
-  - [*Voltametría cíclica resultados experimentales*](#voltametría-cíclica-resultados-experimentales)
+- [Resultados](#resultados)
+  - [Cronoamperometría resultados prueba](#cronoamperometría-resultados-prueba)
+  - [Cronoamperometría resultados experimentales](#cronoamperometría-resultados-experimentales)
+  - [Voltametría cíclica resultados prueba](#voltametría-cíclica-resultados-experimentales)
+  - [Voltametría cíclica resultados experimentales](#voltametría-cíclica-resultados-experimentales)
 
-- [*Referencias*](#referencias)
+- [Referencias](#referencias)
 
 
 ## **Introducción**
@@ -69,7 +69,7 @@ El sistema fucniona manteniendo el potencial del electrodo de trabajo (WE) a un 
 <p align="center">
    <img src="Docs/assets/imgs/potenciostat.png" alt="potenciostat" width="300" /> 
 
-> **Figura 2: Esquema de un potenciostato.**
+> **Figura 2. Esquema de un potenciostato.**
 
 ### **Cronoamperometría**
 La cronoamperometría es una técnica electroquímica que consiste en aplicar un potencial escalonado a través del electrodo de trabajo. Esto provoca reacciones de oxidación o reducción en la solución en el electrodo, y la corriente electroquímica resultante se mide a lo largo del tiempo después de aplicar el paso de potencial. [2]
@@ -81,7 +81,7 @@ La cronoamperometría se ha utilizado ampliamente en diversos estudios, ya sea d
 <p align="center">
    <img src="Docs/assets/imgs/crono.jpg" alt="cronoamperometria" width="300" /> 
 
-> __Figura 3: Cronoamperometría desde el potencial inicial Ei hasta-0,95 V (zona del pico c 1 de la voltametría), en presencia o ausencia de aditivo: a. sin aditivo; b. con tiourea 5·10^-4 M; c. l-cisteína 5·10^-4 M. [4]__
+> __Figura 3. Cronoamperometría desde el potencial inicial Ei hasta-0,95 V (zona del pico c 1 de la voltametría), en presencia o ausencia de aditivo: a. sin aditivo; b. con tiourea 5·10^-4 M; c. l-cisteína 5·10^-4 M. [4]__
 
 ### **Voltametría cíclica**
 
@@ -92,7 +92,7 @@ La voltametría cíclica es un experimento que consiste en explorar una variedad
 <p align="center">
    <img src="Docs/assets/imgs/volta.jpg" alt="volta" width="300" /> 
 
-> __Figura 4: Voltametría Cíclica: Measuring Redox Potentials and Currents. [7]__
+> __Figura 4. Voltametría Cíclica: Measuring Redox Potentials and Currents. [7]__
 
 ## **Objetivos del proyecto**
 
@@ -121,7 +121,7 @@ El repositorio seguirá el árbol de ramas indicado en la Figura 5.
 <p align="center">
    <img src="Docs/assets/imgs/git-tree.png" alt="git-tree" width="300" /> 
 
-> __Figura 5: Git Tree for this repository.__
+> __Figura 5. Git Tree para este repositorio.__
 
 ## __Método__ 
 ### __Organización__
@@ -234,6 +234,9 @@ Esta técnica implica el barrido de voltaje entre dos vértices, comenzando desd
 
 <p align="center">
    <img src="Docs/assets/imgs/graph_1.jpg" alt="graph_1" width="300" /> 
+
+
+
 > **Figura 9. Voltametría gráfico**
 
 #### __Implementación__ 
@@ -242,13 +245,16 @@ El proceso de voltametría cíclica se lleva a cabo mediante el siguiente flujo 
 
 <p align="center">
    <img src="Docs/assets/imgs/graph_2.jpg" alt="graph_2" width="300" /> 
+
+
+
 > **Figura 10. Workflow voltametría**
 
 ## __Resultados__
 
 ### __Cronoamperometría resultados prueba__
 
-Para comprobar que el código para realizar la cronoamperometría funcionaba bien, se hicieron varias pruebas probando con diferentes valores de eDC, sampling period y measurement time de la aplicación viSens. La **Figura X** muestra el resultado del gráfico corriente vs tiempo con los valores de eDC = 0.6, Sampling period = 100 y Measurement time = 10. 
+Para comprobar que el código para realizar la cronoamperometría funcionaba bien, se hicieron varias pruebas probando con diferentes valores de eDC, sampling period y measurement time de la aplicación viSens. La **Figura 11** muestra el resultado del gráfico corriente vs tiempo con los valores de eDC = 0.6, Sampling period = 100 y Measurement time = 10. 
 
 <p align="center">
 <a href="Docs/assets/imgs/Crono_prova.jpeg">
@@ -258,7 +264,7 @@ Para comprobar que el código para realizar la cronoamperometría funcionaba bie
 
 > **Figura 11. Resultados amperometría prueba**
 
-Al realizar la cronoamperometría se esperaba que el gráfico corriente vs tiempo fuera una línea recta horizontal debido a que como que no hay ninguna reacción electroquímica ocurriendo en el electrodo, la corriente debería mentenerse constante a lo largo del tiempo. En la **Figura X** observamos como varia y no se mantiene constante. Esto puede ser debido a ruido, ya que no se encontró ningún otro fallo en el código implementado. 
+Al realizar la cronoamperometría se esperaba que el gráfico corriente vs tiempo fuera una línea recta horizontal debido a que como que no hay ninguna reacción electroquímica ocurriendo en el electrodo, la corriente debería mentenerse constante a lo largo del tiempo. En la **Figura 11** observamos como varia y no se mantiene constante. Esto puede ser debido a ruido, ya que no se encontró ningún otro fallo en el código implementado. 
 
 ### __Cronoamperometría resultados experimentales__
 
