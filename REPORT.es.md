@@ -53,6 +53,7 @@ A continuación se adjunta toda la información referente al proyecto desarrolla
   - [Voltametría cíclica resultados prueba](#voltametría-cíclica-resultados-experimentales)
   - [Voltametría cíclica resultados experimentales](#voltametría-cíclica-resultados-experimentales)
 
+- [Conclusiones](#conclusiones)
 - [Referencias](#referencias)
 
 
