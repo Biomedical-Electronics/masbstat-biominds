@@ -167,6 +167,8 @@ Además, se emplea el protocolo MASB-COMM-S, el cual desempeña un papel importa
 <img src="Docs/assets/imgs/micro-flow.png" alt="Diagrama de flujo del microcontrolador" />
 </a>
 </p>
+-
+
 > **Figura 7. Workflow del funcionamiento del microcontrolador**
 
 El archivo "stm32main.c" contiene la implementación de las funciones "setup" y "loop", que son llamadas por el archivo principal "main.c", prime archivo que se ejecuta. Estas funciones se dedican a configurar y controlar el dispositivo en función de los comandos recibidos a través de la comunicación asíncrona utilizando el protocolo MASB-COMM-S.
@@ -223,6 +225,8 @@ Primeramente, se debe tener en cuenta que la función "chronoamperometry" toma c
 <img src="Docs/assets/imgs/ca-flow.png" alt="Diagrama de flujo de la cronoamperometría" />
 </a>
 </p>
+-
+
 > **Figura 8. Workflow cronoamperometría**
 
 ### __Voltametría cíclica__
