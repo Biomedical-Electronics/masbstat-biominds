@@ -50,7 +50,7 @@ A continuación se adjunta toda la información referente al proyecto desarrolla
 - [Resultados](#resultados)
   - [Cronoamperometría resultados prueba](#cronoamperometría-resultados-prueba)
   - [Cronoamperometría resultados experimentales](#cronoamperometría-resultados-experimentales)
-  - [Voltametría cíclica resultados prueba](#voltametría-cíclica-resultados-experimentales)
+  - [Voltametría cíclica resultados prueba](#voltametría-cíclica-resultados-prueba)
   - [Voltametría cíclica resultados experimentales](#voltametría-cíclica-resultados-experimentales)
 
 - [Conclusiones](#conclusiones)

@@ -48,7 +48,7 @@ Attached below is all the information regarding the project developed, which con
   - [Cyclic voltammetry](#cylic-voltammetry)
 
 - [Results](#results)
-  - [Chronoamperometry results test](#chronoampeometry-results-test)
+  - [Chronoamperometry results test](#chronoamperometry-results-test)
   - [Chronoamperometry results experimental](#chronoamperometry-results-experimental)
   - [Cyclic voltammetry results test](#cyclic-voltammetry-results-test)
   - [Cyclic voltammetry results experimental](#cyclic-voltammetry-results-experimental)
@@ -168,6 +168,8 @@ In addition, the MASB-COMM-S protocol is used, which plays an important role in 
 <img src="Docs/assets/imgs/micro-flow.png" alt="Diagrama de flujo del microcontrolador" />
 </a>
 </p>
+
+
 > **Figure 7. Workflow of the microcontroller**
 
 The "stm32main.c" file contains the implementation of the "setup" and "loop" functions, which are called by the main file "main.c", the first file to be executed. These functions are dedicated to configure and control the device according to the commands received through asynchronous communication using the MASB-COMM-S protocol.
@@ -224,6 +226,8 @@ First of all, it should be noted that the "chronoamperometry" function takes as 
 <img src="Docs/assets/imgs/ca-flow.png" alt="Diagrama de flujo de la cronoamperometría" />
 </a>
 </p>
+
+
 > **Figure 8. Workflow chronoamperometry**
 
 ### Cyclic voltammetry
@@ -264,6 +268,8 @@ To verify that the code to perform the chronoamperometry worked well, several te
 </a>
 </p>
 
+
+
 > **Figure 11. Results chronoamperometry test **
 
 When performing chronoamperometry, the current vs. time graph was expected to be a straight horizontal line because since there is no electrochemical reaction occurring at the electrode, the current should remain constant over time. In **Figure 11** we observe how it varies and does not remain constant. This may be due to noise, since no other bugs were found in the implemented code.
@@ -279,6 +285,8 @@ The experimental results of the chronoamperometry are as follows:
 <img src="Docs/assets/imgs/Crono_experimental.jpeg" alt="Resultados cronoamperometría experimental" width="500" />
 </a>
 </p>
+
+
 
 > **Figure 12. Results chronoamperometry experimental**
 
@@ -298,8 +306,12 @@ The results obtained were represented in a graph, and it was observed that they 
 
 <p align="center">
    <img src="Docs/assets/imgs/graph_3.jpg" alt="graph_3" width="300" /> 
-**Figure 13. Results voltammetry experimental**
 
+
+
+
+
+> **Figure 13. Results voltammetry experimental**
 
 ## Conclusions
 
